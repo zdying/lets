@@ -1,0 +1,53 @@
+<link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../../bower_components/core-item/core-item.html">
+<link rel="import" href="../../bower_components/core-scaffold/core-scaffold.html">
+
+<link rel="import" href="./designer-design.html">
+<link rel="import" href="./designer-menu.html">
+<link rel="import" href="./designer-toolbar.html">
+
+<polymer-element name="designer-app" attributes="app menuList">
+    <template>
+        <style>
+            :host{
+            }
+        </style>
+
+
+
+        <core-scaffold>
+          <core-header-panel navigation flex mode="seamed">
+            <core-toolbar>Let's Polymer</core-toolbar>
+            <core-menu>
+                <designer-menu app="{{app}}" menuList="{{menuList}}"></designer-menu>
+            </core-menu>
+          </core-header-panel>
+          <div tool>
+              <designer-toolbar></designer-toolbar>
+          </div>
+          <div fit>
+              <designer-design app="{{app}}" fit></designer-design>
+          </div>
+        </core-scaffold>
+    </template>
+    <script>
+        Polymer({
+            ready: function(){
+                this.app = {
+                    app: 'lets',
+                    version: '0.0.1'
+                };
+            },
+            onDrop: function(eve) {
+                // body...
+                console.log('drop', eve);
+            },
+
+            onDragOver: function(eve){
+                console.log('over');
+                return false
+            }
+        })
+    </script>
+</polymer-element>

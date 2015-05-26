@@ -1,0 +1,42 @@
+<link rel="import" href="../../bower_components/core-drag-drop/core-drag-drop.html">
+
+<polymer-element name="designer-menu" attributes="app menuList">
+    <template>
+        <style>
+            :host{
+                background: #1F1F1F;
+            }
+        </style>
+
+        <core-drag-drop></core-drag-drop>
+
+        <core-menu>
+            <template repeat="{{menu in menuList}}">
+                <core-item draggable="true" label="{{menu.title}}" on-dragstart="{{onDragStart}}" icon="{{menu.icon}}"></core-item>
+            </template>
+        </core-menu>
+    </template>
+    <script>
+        Polymer({
+            ready: function(){
+                console.log('menu ready called.');
+                this.app = {};
+            },
+
+            onDragStart: function(eve, detail, sender){
+                console.log("dragstart ...", sender);
+
+                // eve.dataTransfer.setData('html', 'aaaaaaa');
+                // eve.dataTransfer.setData('element', sender);
+
+                this.app.dragInfo = {
+                    element: sender
+                }
+            },
+
+            onDrop: function(eve){
+                console.log("drop...", eve);
+            }
+        })
+    </script>
+</polymer-element>

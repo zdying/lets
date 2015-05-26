@@ -15,6 +15,14 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^0.5"
+    "polymer": "Polymer/polymer#^0.5",
+    "core-scaffold": "Polymer/core-scaffold#^0.5",
+    "core-menu": "Polymer/core-menu#^0.5",
+    "core-item": "Polymer/core-item#^0.5",
+    "core-drag-drop": "Polymer/core-drag-drop#^0.5",
+    "paper-slider": "Polymer/paper-slider#^0.5",
+    "paper-toggle-button": "Polymer/paper-toggle-button#^0.5",
+    "paper-tabs": "Polymer/paper-tabs#^0.5",
+    "paper-spinner": "Polymer/paper-spinner#^0.5"
   }
 }
