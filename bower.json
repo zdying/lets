@@ -1,0 +1,20 @@
+{
+  "name": "lets",
+  "version": "0.0.1",
+  "homepage": "https://github.com/daiying-zhang/lets",
+  "authors": [
+    "daiying.zhang <zdying@live.com>"
+  ],
+  "description": "lets is a visual editor",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5"
+  }
+}
