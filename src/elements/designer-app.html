@@ -12,6 +12,11 @@
         <style>
             :host{
             }
+
+            :host iframe{
+                width: 100%;
+                height: 100%;
+            }
         </style>
 
 
@@ -24,9 +29,10 @@
             </core-menu>
           </core-header-panel>
           <div tool>
-              <designer-toolbar></designer-toolbar>
+              <designer-toolbar flex></designer-toolbar>
           </div>
           <div fit>
+              <!-- <iframe fit src="./designer-frame.html" app="{{app}}" frameborder="0"></iframe> -->
               <designer-design app="{{app}}" fit></designer-design>
           </div>
         </core-scaffold>

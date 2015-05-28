@@ -1,20 +1,61 @@
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../../bower_components/paper-dropdown/paper-dropdown.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+
 <polymer-element name="designer-toolbar">
     <template>
-        <!-- <core-menu selected="0"> -->
-        <core-icon-button icon="folder-open"></core-icon-button>
-        <core-icon-button icon="note-add"></core-icon-button>
-        <core-icon-button icon="save"></core-icon-button>
-        <core-icon-button icon="system-update-tv"></core-icon-button>
+        <style>
+            :host paper-dropdown-menu{
+                color: white;
+            }
 
-        <core-icon-button icon="settings"></core-icon-button>
+            :host paper-dropdown-menu /deep/ #label:not(.selectedItem){
+                color: #FFFFFF !important;
+            }
 
-        <core-icon-button icon="undo"></core-icon-button>
-        <core-icon-button icon="redo"></core-icon-button>
+            :host paper-dropdown-menu /deep/ #arrow {
+                color: #FFFFFF;
+            }
 
-        <core-icon-button icon="open-with"></core-icon-button>
-        <core-icon-button icon="open-with"></core-icon-button>
-        <core-icon-button icon="open-with"></core-icon-button>
-        <!-- </core-menu> -->
+            :host paper-dropdown-menu paper-item{
+                color: black;
+            }
+
+            :host paper-dropdown-menu paper-dropdown{
+                top: 42px;
+            }
+        </style>
+        <section flex>
+            <!-- <core-menu selected="0"> -->
+            <core-icon-button icon="settings-ethernet"></core-icon-button>
+
+            <core-icon-button icon="folder-open"></core-icon-button>
+            <core-icon-button icon="note-add"></core-icon-button>
+            <core-icon-button icon="save"></core-icon-button>
+            <core-icon-button icon="system-update-tv"></core-icon-button>
+
+            <core-icon-button icon="settings"></core-icon-button>
+
+            <core-icon-button icon="undo"></core-icon-button>
+            <core-icon-button icon="redo"></core-icon-button>
+
+            <core-icon-button icon="open-with"></core-icon-button>
+            <core-icon-button icon="open-with"></core-icon-button>
+            <core-icon-button icon="open-with"></core-icon-button>
+            <!-- </core-menu> -->
+
+            <paper-dropdown-menu flex label="Theme">
+                <paper-dropdown class="dropdown">
+                    <core-menu class="menu">
+                        <paper-item>Croissant</paper-item>
+                        <paper-item>Donut</paper-item>
+                        <paper-item>Financier</paper-item>
+                        <paper-item>Madeleine</paper-item>
+                    </core-menu>
+                </paper-dropdown>
+            </paper-dropdown-menu>
+        </section>
     </template>
     <script>
         Polymer({})

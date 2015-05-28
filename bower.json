@@ -23,6 +23,13 @@
     "paper-slider": "Polymer/paper-slider#^0.5",
     "paper-toggle-button": "Polymer/paper-toggle-button#^0.5",
     "paper-tabs": "Polymer/paper-tabs#^0.5",
-    "paper-spinner": "Polymer/paper-spinner#^0.5"
+    "paper-spinner": "Polymer/paper-spinner#^0.5",
+    "inspector-elements": "Polymer/inspector-elements#~0.5.6",
+    "paper-dropdown-menu": "Polymer/paper-dropdown-menu#^0.5",
+    "paper-dropdown": "Polymer/paper-dropdown#^0.5",
+    "paper-item": "Polymer/paper-item#^0.5",
+    "core-ajax": "Polymer/core-ajax#^0.5",
+    "pvc-globals": "divshot/pvc-globals#~0.1.0",
+    "polymer-signals": "addyosmani/polymer-signals"
   }
 }

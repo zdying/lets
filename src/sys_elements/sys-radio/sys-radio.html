@@ -1,0 +1,16 @@
+<polymer-element name="sys-radio" attributes="content">
+    <template id="template">
+        <label id="content">
+            <input type="radio"> Radio Button
+        </label>
+    </template>
+    <script>
+        Polymer({
+            ready: function(){
+                this.content = this.$.content.outerHTML;
+                console.log('dddafasfdasfafa');
+            }
+        })
+    </script>
+</polymer-element>
+<script src="./sys-radio.js"></script>

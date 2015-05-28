@@ -5,9 +5,11 @@
 <link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html">
 <!-- 这里是测试用的import -->
 
-<link rel="import" href="../user_elements/user-elements.html">
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
 
-<polymer-element name="designer-design" attributes="app">
+<link rel="import" href="../sys_elements/sys-elements.html">
+
+<polymer-element name="designer-design" attributes="app theme">
     <template>
         <style>
             :host{
@@ -15,31 +17,81 @@
             }
         </style>
 
-        <user-elements hide id="user-elements"></user-elements>
-        <div id="drop" on-drop="{{onDrop}}" on-dragover="{{onDragOver}}" fit></div>
+        <user-elements hidden id="user-elements"></user-elements>
+        <div id="theme" hidden></div>
+        <div id="drop" class="m-{{theme}}" on-drop="{{onDrop}}" on-dragover="{{onDragOver}}" fit></div>
+        <core-ajax
+          id="ajaxTheme"
+          auto
+          url=""
+          handleAs="text"
+          on-core-response="{{handleResponse}}"></core-ajax>
     </template>
     <script>
         Polymer({
             ready: function(){
-                //this.$.drop.addEventListener('dragover', this.onDragOver)
+                // this.app = parent.document.querySelector('#app').app;
+                this.theme = 'default';
+                this.themeMapping = {
+                    'default': 'http://demo.com/github/lets/src/styles/theme.css',
+                    'flatUI' : ''
+                }
             },
 
-            onDrop: function(eve, detail, sender) {
+            themeChanged: function(){
+                this.loadTheme(this.theme);
+            },
+
+            onDrop: function(eve, detail, sender){
+                var target = eve.target;
+
                 var element = this.app.dragInfo.element;
                 var label = element.label;
 
-                var mapping = this.$['user-elements'].list;
+                var mapping = this.$['user-elements'].elements;
+
                 var html = mapping[label];
+                //var eleName = this.getElementName(label);
+                //var html = '<' + eleName + '></' + eleName + '>';
+
+                var fragment = document.createElement('div');
 
                 if(typeof html !== 'string'){
                     html = html.content
                 }
 
-                this.$.drop.innerHTML += html
+                fragment.innerHTML = html;
+
+                for(var i = 0, children = fragment.children, len = children.length; i < len; i++){
+                    target.appendChild(children[i])
+                }
+                //target.appendChild(fragment);
+                //this.$.drop.innerHTML += html
             },
 
             onDragOver: function(eve, detail, sender){
                 eve.preventDefault();
+            },
+
+            loadTheme: function(theme){
+                theme = theme || 'default';
+                var url = this.themeMapping[theme];
+
+                this.$.ajaxTheme.url = url;
+                console.log('[log] 开始加载样式: ' + theme + ' ==> ' + url);
+            },
+
+            handleResponse: function(eve, detail, sender){
+                var style = document.createElement('style');
+
+                style.textContent = detail.response;
+
+                this.$.theme.appendChild(style);
+                console.log('[log] 样式加载完成.');
+            },
+
+            getElementName: function(label){
+                return 'sys-' + label.toLowerCase()
             }
         })
     </script>

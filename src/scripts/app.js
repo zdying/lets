@@ -16,11 +16,19 @@
             icon: 'extension'
         },
         {
+            title: 'Table',
+            icon: 'document'
+        },
+        {
             title: 'Slider',
             icon: 'gesture'
         },
         {
             title: 'Spinner',
+            icon: 'today'
+        },
+        {
+            title: 'Checkbox',
             icon: 'today'
         },
         {
