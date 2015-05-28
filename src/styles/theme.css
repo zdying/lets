@@ -6,7 +6,8 @@
 /* ================== Test styles ================== */
 *{
     color: red;
-    font-size: 50px !important;
+    font-size: 20px !important;
+    line-height: 20px !important;
 }
 /* ================== Test styles ================== */
 
