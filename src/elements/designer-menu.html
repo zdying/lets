@@ -5,7 +5,6 @@
                 display: block;
                 line-height: 40px;
                 min-height: 40px;
-                background: blue;
                 margin-bottom: 5px;
             }
 
@@ -18,8 +17,8 @@
         <template is="dom-repeat" items ="{{menuList}}">
             <!-- <div draggable="true" style="background:red; margin: 5px; border: 1px solid orange">{{item.title}}</div> -->
             <paper-icon-item draggable="true" element-name="{{item.title}}" on-dragstart="onDragStart">
-              <iron-icon style="background: orange" icon="{{item.icon}}" item-icon></iron-icon>
-              <span style="background: yellow">{{item.title}}</span>
+              <iron-icon style="" icon="{{item.icon}}" item-icon></iron-icon>
+              <span style="">{{item.title}}</span>
             </paper-icon-item>
         </template>
         <!-- <template repeat="{{menu in menuList}}">
