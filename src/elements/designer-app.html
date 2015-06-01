@@ -61,6 +61,12 @@
 
 
 <dom-module id="designer-app">
+    <style>
+        .main-content{
+            width: 100%;
+            height: calc(100% - 64px);
+        }
+    </style>
     <template>
         <paper-drawer-panel>
           <paper-header-panel drawer>
@@ -68,18 +74,7 @@
               <div>Application</div>
             </paper-toolbar>
             <paper-menu class="main-menu">
-                <paper-icon-item>
-                  <iron-icon icon="inbox" item-icon></iron-icon> Inbox
-                </paper-icon-item>
-                <paper-icon-item>
-                  <iron-icon icon="send" item-icon></iron-icon> Outbox
-                </paper-icon-item>
-                <paper-icon-item>
-                  <iron-icon icon="delete" item-icon></iron-icon> Trash
-                </paper-icon-item>
-                <paper-icon-item>
-                  <iron-icon icon="report" item-icon></iron-icon> Spam
-                </paper-icon-item>
+                <designer-menu menu-list="{{menuList}}" app="{{app}}"></designer-menu>
             </paper-menu>
           </paper-header-panel>
           <paper-header-panel main>
@@ -93,13 +88,34 @@
               <div title></div>
               <paper-icon-button icon="exit-to-app"></paper-icon-button>
             </paper-toolbar>
-            <div class="main-content"></div>
+            <iframe class="main-content" src="./designer-frame.html" frameborder="0">
+                <designer-design app="{{app}}"></designer-design>
+            </iframe>
+            <!-- <div class="main-content">
+                <designer-design app="{{app}}"></designer-design>
+            </div> -->
           </paper-header-panel>
         </paper-drawer-panel>
     </template>
-    <script>
-        Polymer({
-            is: 'designer-app'
-        })
-    </script>
 </dom-module>
+<script>
+    Polymer({
+        is: 'designer-app',
+        properties: {
+            app: {
+                type: Object,
+                value: {
+                    name: 'lets',
+                    version: '0.1.0'
+                }
+            },
+            /**
+             * 菜单列表
+             */
+            menuList: {
+                type: Array,
+                value: []
+            }
+        }
+    })
+</script>

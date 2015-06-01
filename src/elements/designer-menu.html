@@ -1,42 +1,69 @@
-<link rel="import" href="../../bower_components/core-drag-drop/core-drag-drop.html">
-
-<polymer-element name="designer-menu" attributes="app menuList">
+<dom-module id="designer-menu">
     <template>
         <style>
-            :host{
-                background: #1F1F1F;
+            .main-menu paper-icon-item{
+                display: block;
+                line-height: 40px;
+                min-height: 40px;
+                background: blue;
+                margin-bottom: 5px;
+            }
+
+            .main-menu paper-icon-item iron-icon{
+                margin-left: 10px;
+                margin-right: 20px;
+                margin-top: 8px;
             }
         </style>
-
-        <core-drag-drop></core-drag-drop>
-
-        <core-menu>
-            <template repeat="{{menu in menuList}}">
-                <core-item draggable="true" label="{{menu.title}}" on-dragstart="{{onDragStart}}" icon="{{menu.icon}}"></core-item>
-            </template>
-        </core-menu>
+        <template is="dom-repeat" items ="{{menuList}}">
+            <!-- <div draggable="true" style="background:red; margin: 5px; border: 1px solid orange">{{item.title}}</div> -->
+            <paper-icon-item draggable="true" element-name="{{item.title}}" on-dragstart="onDragStart">
+              <iron-icon style="background: orange" icon="{{item.icon}}" item-icon></iron-icon>
+              <span style="background: yellow">{{item.title}}</span>
+            </paper-icon-item>
+        </template>
+        <!-- <template repeat="{{menu in menuList}}">
+            <paper-icon-item draggable="true" on-dragstart="{{onDragStart}}">
+              <iron-icon icon="{{menu.icon}}" item-icon></iron-icon> {{menu.title}}
+            </paper-icon-item>
+        </template> -->
     </template>
-    <script>
-        Polymer({
-            ready: function(){
-                console.log('menu ready called.');
-                this.app = {};
+</dom-module>
+<script>
+    Polymer({
+        is: 'designer-menu',
+        ready: function(){
+        },
+
+        properties: {
+            app: Object,
+            /**
+             * 菜单列表
+             */
+            menuList: {
+                type: Array,
+                value: {}
             },
 
-            onDragStart: function(eve, detail, sender){
-                console.log("dragstart ...", sender);
-
-                // eve.dataTransfer.setData('html', 'aaaaaaa');
-                // eve.dataTransfer.setData('element', sender);
-
-                this.app.dragInfo = {
-                    element: sender
-                }
-            },
-
-            onDrop: function(eve){
-                console.log("drop...", eve);
+            test: {
+                type: String,
+                value: 'ddddfsfsfs'
             }
-        })
-    </script>
-</polymer-element>
+        },
+
+        onDragStart: function(eve, detail){
+            console.log("dragstart ...", eve.target);
+
+            // eve.dataTransfer.setData('html', 'aaaaaaa');
+            // eve.dataTransfer.setData('element', sender);
+
+            this.app.dragInfo = {
+                element: eve.target
+            }
+        },
+
+        onDrop: function(eve){
+            console.log("drop...", eve);
+        }
+    })
+</script>

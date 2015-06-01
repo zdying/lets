@@ -1,0 +1,89 @@
+<link rel="import" href="/iron-/iron-.html">
+<link rel="import" href="bower_components/paper-/paper-.html">
+
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="ab-c">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <template is="dom-repeat" items="{{addd}}">
+
+    </template>
+
+    <template is="dom-if" if="ddd">
+
+    </template>
+    paper
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'ab-c',
+
+  });
+</script>
+
+
+<paper-tabs selected="0">
+  <paper-tab>att</paper-tab>
+  <paper-tab></paper-tab>
+  <paper-tab></paper-tab>
+</paper-tabs>
+
+<paper-toolbar>
+  <paper-icon-button icon="abc" on-tap="menuAction"></paper-icon-button>
+  <div title></div>
+  <paper-icon-button icon="" on-tap="moreAction"></paper-icon-button>
+</paper-toolbar>
+
+<iron-ajax
+        id="ddd"
+        auto
+        url=""
+        handle-as="json"
+        on-response="handleResponse"></iron-ajax>
+
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="jjjj">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: '',
+
+  });
+</script>
+
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: '',
+
+  });
+</script>

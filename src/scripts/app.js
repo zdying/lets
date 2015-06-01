@@ -1,6 +1,5 @@
 (function(){
     var app = document.querySelector('#app');
-
     // 元素
     app.menuList = [
         {

@@ -1,34 +1,38 @@
-<link rel="import" href="./sys-theme.html">
-
-<link rel="import" href="./sys-radio/sys-radio.html">
-
-<polymer-element name="user-elements" attributes="elements">
+<dom-module id="sys-elements">
+    <style></style>
     <template>
 
     </template>
-    <script>
-        Polymer({
-            ready: function(){
-                this.elements = {
-                    'Theme': {
-                        'content': '<user-theme></user-theme>'
-                    },
-                    'Radio': {
-                        'content': '<label><input type="radio"> Radio</label>'
-                    },
-                    'Checkbox': {
-                        'content': '<label><input type="checkbox"> Checkbox</label>'
-                    },
-                    'Table': {
-                        'content': '<table data-element="table"><tr><td data-edit>0 * 0</td><td data-edit>0 * 1</td></tr><tr><td data-edit>1 * 0</td><td data-edit>1 * 1</td></tr></table>'
-                    },
-                    'List & Style': '<style>body{font-size: 44px;}*{color: orange}</style><ul><li>1</li><li>2</li></ul>',
-                    'Slider': '<paper-slider min="10" max="200" value="110"></paper-slider>',
-                    'Spinner': '<paper-spinner active></paper-spinner>',
-                    'Tabs': '<paper-tabs selected="0"><paper-tab>TAB 1</paper-tab><paper-tab>TAB 2</paper-tab><paper-tab>TAB 3</paper-tab></paper-tabs>',
-                    'Toggle Button': '<paper-toggle-button></paper-toggle-button>'
-                };
-            }
-        })
-    </script>
-</polymer-element>
+</dom-module>
+<script>
+Polymer({
+    is: "sys-elements",
+
+    properties:{
+        elements: Object
+    },
+
+    ready: function(){
+        this.elements = {
+            'Theme': {
+                'content': '<user-theme></user-theme>'
+            },
+            'Radio': {
+                'content': '<label><input type="radio"> Radio</label>'
+            },
+            'Checkbox': {
+                'content': '<label><input type="checkbox"> Checkbox</label>'
+            },
+            'Table': {
+                'content': '<table data-element="table"><tr><td data-edit>0 * 0</td><td data-edit>0 * 1</td></tr><tr><td data-edit>1 * 0</td><td data-edit>1 * 1</td></tr></table>'
+            },
+            'List & Style': '<style>body{font-size: 44px;}*{color: orange}</style><ul><li>1</li><li>2</li></ul>',
+            'Slider': '<paper-slider min="10" max="200" value="110"></paper-slider>',
+            'Spinner': '<paper-spinner active></paper-spinner>',
+            'Tabs': '<paper-tabs selected="0"><paper-tab>TAB 1</paper-tab><paper-tab>TAB 2</paper-tab><paper-tab>TAB 3</paper-tab></paper-tabs>',
+            'Toggle Button': '<paper-toggle-button></paper-toggle-button>'
+        };
+        console.log('elements::', this.elements);
+    }
+})
+</script>
