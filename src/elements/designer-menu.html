@@ -1,22 +1,33 @@
 <dom-module id="designer-menu">
     <template>
         <style>
-            .main-menu paper-icon-item{
+            :host paper-icon-item{
                 display: block;
                 line-height: 40px;
                 min-height: 40px;
                 margin-bottom: 5px;
+                border: 1px solid orange;
+                background: lightblue;
             }
 
-            .main-menu paper-icon-item iron-icon{
+            :host paper-icon-item:hover{
+                border: 1px solid blue;
+            }
+
+            :host paper-icon-item:focus{
+                border: 1px solid red;
+                background: pink;
+            }
+
+            :host paper-icon-item iron-icon{
                 margin-left: 10px;
                 margin-right: 20px;
                 margin-top: 8px;
             }
+
         </style>
         <template is="dom-repeat" items ="{{menuList}}">
-            <!-- <div draggable="true" style="background:red; margin: 5px; border: 1px solid orange">{{item.title}}</div> -->
-            <paper-icon-item draggable="true" element-name="{{item.title}}" on-dragstart="onDragStart">
+            <paper-icon-item on-down="handelDown" draggable="true" element-name="{{item.title}}" on-dragstart="onDragStart">
               <iron-icon style="" icon="{{item.icon}}" item-icon></iron-icon>
               <span style="">{{item.title}}</span>
             </paper-icon-item>
@@ -61,8 +72,24 @@
             }
         },
 
-        onDrop: function(eve){
-            console.log("drop...", eve);
+        // onDrop: function(eve){
+        //     console.log("drop...", eve);
+        // },
+
+        // handleTrack: function(eve){
+        //     eve.preventDefault();
+        //     console.log('track event...', arguments);
+        // },
+
+        handelDown: function(eve){
+            console.log(eve);
+            //eve.target.focus();
+            // eve.target.focus();
+            // eve.parentNode.removeAttribute('tabindex')
+        },
+
+        handMouseOver: function(eve){
+            console.log('mouseover');
         }
     })
 </script>

@@ -89,6 +89,8 @@
             for(var i = 0, children = fragment.children, len = children.length; i < len; i++){
                 target.appendChild(children[i])
             }
+
+            parent.document.body.click();
             //target.appendChild(fragment);
             //this.$.drop.innerHTML += html
         },
