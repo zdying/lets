@@ -1,0 +1,47 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="designer-toolbar">
+  <style>
+    :host {
+      display: block;
+    }
+    paper-toolbar{
+        background: #272B33;
+    }
+
+    paper-toolbar paper-icon-button{
+        margin-right: 10px !important;
+    }
+  </style>
+  <template>
+      <paper-toolbar>
+        <paper-icon-button icon="add-shopping-cart"></paper-icon-button>
+        <paper-icon-button icon="apps"></paper-icon-button>
+        <paper-icon-button icon="aspect-ratio"></paper-icon-button>
+        <paper-icon-button icon="card-giftcard"></paper-icon-button>
+        <paper-icon-button icon="view-quilt"></paper-icon-button>
+        <paper-icon-button icon="cloud-queue"></paper-icon-button>
+        <paper-icon-button icon="code" on-tap="handelCodeTap"></paper-icon-button>
+        <paper-icon-button icon="dashboard" on-tap="handelDesignTap"></paper-icon-button>
+        <paper-icon-button icon="launch" on-tap="handelLanuchTap"></paper-icon-button>
+        <div title></div>
+        <paper-icon-button icon="exit-to-app"></paper-icon-button>
+      </paper-toolbar>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'designer-toolbar',
+
+    handelCodeTap: function(eve){
+        this.fire('toolbar-show-code')
+    },
+    handelDesignTap: function(eve){
+        this.fire('toolbar-show-design')
+    },
+    handelLanuchTap: function(eve){
+        this.fire('toolbar-show-lanuch');
+    }
+  });
+</script>

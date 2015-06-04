@@ -27,16 +27,13 @@
 
         </style>
         <template is="dom-repeat" items ="{{menuList}}">
-            <paper-icon-item on-down="handelDown" draggable="true" element-name="{{item.title}}" on-dragstart="onDragStart">
-              <iron-icon style="" icon="{{item.icon}}" item-icon></iron-icon>
-              <span style="">{{item.title}}</span>
-            </paper-icon-item>
+            <designer-element
+                draggable="true"
+                element-name="{{item.title}}"                          
+                title="{{item.title}}"
+                icon="{{item.icon}}"
+                on-dragstart="onDragStart"></designer-element>
         </template>
-        <!-- <template repeat="{{menu in menuList}}">
-            <paper-icon-item draggable="true" on-dragstart="{{onDragStart}}">
-              <iron-icon icon="{{menu.icon}}" item-icon></iron-icon> {{menu.title}}
-            </paper-icon-item>
-        </template> -->
     </template>
 </dom-module>
 <script>

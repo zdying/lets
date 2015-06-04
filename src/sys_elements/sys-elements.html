@@ -30,7 +30,9 @@ Polymer({
             'Slider': '<paper-slider min="10" max="200" value="110"></paper-slider>',
             'Spinner': '<paper-spinner active></paper-spinner>',
             'Tabs': '<paper-tabs selected="0"><paper-tab>TAB 1</paper-tab><paper-tab>TAB 2</paper-tab><paper-tab>TAB 3</paper-tab></paper-tabs>',
-            'Toggle Button': '<paper-toggle-button></paper-toggle-button>'
+            'Toggle Button': '<paper-toggle-button></paper-toggle-button>',
+            'Button': '<paper-button tabindex="0" style="background: #4285f4;color: #fff;" raised class="colorful custom"><iron-icon icon="check"></iron-icon>ok</paper-button>',
+            'Google Chart': '<google-chart type=\'pie\' options=\'{"title": "Distribution of days in 2001Q1"}\' cols=\'[{"label":"Month", "type":"string"}, {"label":"Days", "type":"number"}]\' rows=\'[["Jan", 31],["Feb", 28],["Mar", 31]]\'></google-chart>'
         };
         console.log('elements::', this.elements);
     }

@@ -1,0 +1,98 @@
+<dom-module id="designer-app">
+    <style>
+        .main-content{
+            width: 100%;
+            height: calc(100% - 64px);
+        }
+        paper-toolbar{
+            background: #272B33;
+        }
+
+        paper-dialog{
+            width: 320px;
+        }
+    </style>
+    <template>
+        <paper-drawer-panel>
+          <paper-header-panel drawer>
+            <paper-toolbar>
+              <div>Application</div>
+            </paper-toolbar>
+            <paper-menu class="main-menu">
+                <designer-menu menu-list="{{menuList}}" app="{{app}}"></designer-menu>
+            </paper-menu>
+          </paper-header-panel>
+          <paper-header-panel main>
+            <designer-toolbar></designer-toolbar>
+            <div class="main-content">
+                <designer-design id="designer" app="{{app}}"></designer-design>
+                <designer-code id="code" app="{{app}}" code="{{code}}"></designer-code>
+            </div>
+          </paper-header-panel>
+        </paper-drawer-panel>
+        <paper-dialog id="dialog" modal>
+            <h2>Dialog Title</h2>
+            <p>暂时还没有实现</p>
+            <div class="buttons">
+                <paper-button dialog-dismiss>取消</paper-button>
+                <paper-button dialog-confirm autofocus>确定</paper-button>
+            </div>
+        </paper-dialog>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: 'designer-app',
+        properties: {
+            app: {
+                type: Object,
+                value: {
+                    name: 'lets',
+                    version: '0.1.0'
+                }
+            },
+            /**
+             * 菜单列表
+             */
+            menuList: {
+                type: Array,
+                value: []
+            },
+            /**
+             * 生成的代码
+             */
+            code: {
+                type: String,
+                value: ''
+            }
+        },
+        listeners: {
+          'designer-updated': 'handelDesignerUpdated',
+          'toolbar-show-code': 'handelShowCode',
+          'toolbar-show-design': 'handelShowDesign',
+          'toolbar-show-lanuch': 'handelShowLanuch',
+        },
+
+        handelDesignerUpdated: function(eve, detail){
+            console.log('ele: designer-app :: handelCodeUpdated....', arguments);
+            this.code = detail.code;
+        },
+
+        handelShowCode: function(eve, detail){
+            this.$.code.style.display = 'block';
+            this.$.designer.style.display = 'none';
+        },
+
+        handelShowDesign: function(eve, detail){
+            this.$.code.style.display = 'none';
+            this.$.designer.style.display = 'block';
+        },
+
+        handelShowLanuch: function(eve, detail){
+            //var dialog = document.createElement('paper-dialog');
+            var dialog = this.$.dialog;
+
+            dialog.open();
+        }
+    })
+</script>

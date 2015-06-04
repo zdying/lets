@@ -1,0 +1,35 @@
+<dom-module id="designer-element">
+  <style>
+    :host {
+        display: block;
+        float: left;
+        width: 113px;
+        height: 60px;
+        line-height: 60px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        color: #FFFFFF;
+        background: #272B33;
+    }
+  </style>
+  <template>
+    <span>{{title}}</span>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'designer-element',
+    properties: {
+        title: {
+            type: String,
+            value: 'Element'
+        },
+        elementName: {
+            type: String,
+            value: 'Element'
+        }
+    }
+  });
+</script>

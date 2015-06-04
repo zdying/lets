@@ -1,0 +1,38 @@
+<dom-module id="designer-code">
+    <style>
+        #drop{
+            height: 100%;
+            background: #272B33;
+            overflow: scroll;
+        }
+    </style>
+    <template>
+        <prettify-element id="code"></prettify-element>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: 'designer-code',
+
+        properties: {
+            app: Object,
+            code: {
+                type: String,
+                value: '',
+                observer: 'codeChanged'
+            }
+        },
+
+        ready: function(){
+            //this.app = document.querySelector('#app').app;
+        },
+
+        codeChanged: function(){
+            this.$.code.text = this.code;
+            console.info('designer-code: Changed ', this.code);
+            // this.fire('code-updated', {
+            //     code: this.htmlCode
+            // });
+        }
+    })
+</script>

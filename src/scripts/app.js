@@ -23,7 +23,7 @@
             icon: 'gesture'
         },
         {
-            title: 'Spinner',
+            title: 'Google Chart',
             icon: 'today'
         },
         {
@@ -37,6 +37,11 @@
         {
             title: 'Toggle Button',
             icon: 'label'
+        },
+        {
+            title: 'Button',
+            icon: 'label'
         }
     ]
+    console.log('app.menuList',app.menuList)
 })()
